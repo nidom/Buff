@@ -3,10 +3,10 @@
 ### A proxy tool for macOS.
 
 ## 自定义规则
-[ss内置规则模板](http://www.yaml.org/)
+[ss内置规则模板](https://github.com/nidom/PlutoX/blob/master/config.ss.general.yaml)
 
 ##语法
-自定义配置使用YAML标准格式，通过 [YAML官网](http://www.yaml.org/) 或 [docs.ansible.com](http://docs.ansible.com/ansible/YAMLSyntax.html) 了解语法
+自定义配置使用YAML标准格式，通过 [YAML官网](http://www.yaml.org/) 或 [docs.ansible.com](http://docs.ansible.com/ansible/YAMLSyntax.html) 了解语法。
 
 > 强调一点：YAML对缩进非常严格，并且只能用空格
 
@@ -26,7 +26,7 @@ rule 和 adapter 是自定义配置的两个核心概念：rule表示规则，�
 一个自定义配置的框架如下：
 
 ```
-version: 2
+
 adapter:
  - id: adapter1
    ...
@@ -43,19 +43,30 @@ rule:
 
 ##Adapter详解
 PlutoX支持以下几个类型的Adapter
-####HTTP
+####HTTP(S)
 HTTP代理
 
 ```
  - id: httpAdapterName
-   type: (S)HTTP
+   type: HTTP
    host: http.host
    port: 8080
-   secured: true #可选，是否为HTTPS代理，默认false
    auth: true #可选，是否需要身份验证
    username: proxy_username #可选
    password: proxy_password #可选
 ```
+HTTPS代理
+
+```
+ - id: httpAdapterName
+   type: SHTTP
+   host: http.proxy.connect.via.https
+   port: 8080
+   auth: true #可选，是否需要身份验证
+   username: proxy_username #可选
+   password: proxy_password #可选
+```
+
 ####SOCK5
 socks5代理
 
@@ -73,7 +84,7 @@ SS代理
    type: ss
    host: ss.host
    port: 1024
-   method: AES-128-CFB
+   method: AES-128-CFB #可选   AES-128-CFB, AES-192-CFB, AES-256-CFB, chacha20, salsa20, rc4-md5
    password: ss_password
    protocol: origin #可选 origin(无)、verify_sha1(OTA)
    obfs: origin #可选 origin(无)、http_simple、tls1.2_ticket_auth
@@ -81,7 +92,7 @@ SS代理
 ```
 ####Speed
 speed用于选择最快连接成功的线路，
->每次网络请求， speed 都会连接所有线路，选择最快连接成功的线路。由于iOS对线程控制严格，speed 容易导致VPN意外断开。强烈建议iOS不使用该 adapter ，或者严格控制同时请求的线路。
+>每次网络请求， speed 都会连接所有线路，选择最快连接成功的线路。
 
 ```
  - id: speedAdapterName
@@ -125,7 +136,6 @@ reject会抛弃网络请求
 ####Domain List
 匹配域名列表，criteria中的p,k,s,r分别表示 prefix (前缀)，keyword(关键词),suffix(后缀),regex(正则表达式)
 
->由于iOS不方便多文件，标准格式中的file列表暂时没有被支持
 
 ```
  - type: domainlist
@@ -140,8 +150,6 @@ reject会抛弃网络请求
 
 ####IP List
 匹配IP列表
-
->由于iOS不方便多文件，标准格式中的file列表暂时没有被支持
 
 ```
  - type: iplist
@@ -172,7 +180,6 @@ DNS解析错误的时候匹配
 这是最简单的一个自定义规则
 
 ```
-version: 2
 adapter:
  - id: ss_proxy
    type: ss
@@ -190,7 +197,7 @@ rule:
 
 
 ```
-version: 2
+
 adapter:
  - id: tokyo_ss_proxy
    type: ss
