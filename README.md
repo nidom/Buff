@@ -2,13 +2,16 @@
 
 ### A proxy tool for macOS.
 
+<a href="https://itunes.apple.com/cn/app/plutox/id1176077430?mt=12"><img src="https://www.plutox.top/img/download.png" width = "210" height = "80" alt=align=center /></a>
+
+
 ## 自定义规则
-[ss内置规则模板](https://github.com/nidom/PlutoX/blob/master/config.ss.general.yaml)
+[ss(r)内置规则模板](https://github.com/nidom/PlutoX/blob/master/config.ss.general.yaml)
 
 ##语法
 自定义配置使用YAML标准格式，通过 [YAML官网](http://www.yaml.org/) 或 [docs.ansible.com](http://docs.ansible.com/ansible/YAMLSyntax.html) 了解语法。
 
-> 强调一点：YAML对缩进非常严格，并且只能用空格
+> Note：YAML对缩进非常严格，并且只能用空格。
 
 
 ##基本概念
@@ -84,10 +87,10 @@ SS代理
    type: ss
    host: ss.host
    port: 1024
-   method: AES-128-CFB #可选   AES-128-CFB, AES-192-CFB, AES-256-CFB, chacha20, salsa20, rc4-md5
+   method: AES-128-CFB   #可选   AES-128-CFB, AES-192-CFB, AES-256-CFB, chacha20, salsa20, rc4-md5
    password: ss_password
-   protocol: origin #可选 origin(无)、verify_sha1(OTA)
-   obfs: origin #可选 origin(无)、http_simple、tls1.2_ticket_auth
+   protocol: origin   #可选 origin(无)、verify_sha1(OTA)
+   obfs: origin      #可选 origin(无)、http_simple、tls1.2_ticket_auth
    obfs_param: ""
 ```
 ####Speed
@@ -139,7 +142,6 @@ reject会抛弃网络请求
 
 ```
  - type: domainlist
-   #file: ~/.SpechtLite/adlist
    criteria:
     - p,ad
     - k,google
