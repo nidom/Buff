@@ -168,11 +168,11 @@ reject会抛弃网络请求
 list规则是一组doamin的正则表达式
 
 ```
- - type: list
-   criteria:
-    - \.cn
-    - zhihu\.com
-   adapter: adapterName
+  - type: list
+    criteria:
+      - \.cn
+      - zhihu\.com
+    adapter: adaterName
 ```
 ####DNSFail
 DNS解析错误的时候匹配
