@@ -163,6 +163,17 @@ reject会抛弃网络请求
     - 169.254.0.0/16
    adapter: adapterName
 ```
+
+####List
+list规则是一组doamin的正则表达式
+
+```
+ - type: list
+   criteria:
+    - \.cn
+    - zhihu\.com
+   adapter: adapterName
+```
 ####DNSFail
 DNS解析错误的时候匹配
 
