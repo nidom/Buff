@@ -1,8 +1,8 @@
-#Buff
+# Buff
 
 ### A proxy tool for macOS.
 
-<a href="https://itunes.apple.com/cn/app/plutox/id1176077430?mt=12"><img src="https://www.plutox.top/img/download.png" width = "210" height = "80" alt=align=center /></a>
+<a href="https://itunes.apple.com/cn/app/plutox/id1176077430?mt=12"><img src="https://www.plutox.top/img/download.png" width = "210" height = "80"/> </a>
 
 
 ## 自定义规则
