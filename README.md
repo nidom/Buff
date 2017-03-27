@@ -1,4 +1,4 @@
-#PlutoX
+#Buff
 
 ### A proxy tool for macOS.
 
@@ -6,7 +6,7 @@
 
 
 ## 自定义规则
-[ss(r)内置规则模板](https://github.com/nidom/PlutoX/blob/master/config.ss.general.yaml)
+[ss(r)内置规则模板](https://github.com/nidom/buff/blob/master/config.ss.general.yaml)
 
 ##语法
 自定义配置使用YAML标准格式，通过 [YAML官网](http://www.yaml.org/) 或 [docs.ansible.com](http://docs.ansible.com/ansible/YAMLSyntax.html) 了解语法。
@@ -45,7 +45,7 @@ rule:
 ```
 
 ##Adapter详解
-PlutoX支持以下几个类型的Adapter
+Buff支持以下几个类型的Adapter
 ####HTTP(S)
 HTTP代理
 
